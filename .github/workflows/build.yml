@@ -11,6 +11,5 @@ on:
         default: false
 jobs:
   build:
-    if: ${{ github.event.inputs.skipPipelineTrigger == 'false' }}
     name: Build and Deploy
     runs-on: echo ${{ github.event.inputs.sha }}
