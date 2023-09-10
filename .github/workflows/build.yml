@@ -1,0 +1,23 @@
+name: 'Dependency Review'
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: 'Git SHA to Deploy'
+      skipPipelineTrigger:
+        description: Skip pipeline trigger
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v3
+      - name: 'Dependency Review'
+        uses: actions/dependency-review-action@v3
